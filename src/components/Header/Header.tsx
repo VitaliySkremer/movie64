@@ -19,12 +19,12 @@ const listMenu:IListMenu[] = [
   {
     svg:IconsList.STAR,
     bg:"#007dfe",
-    link: '/'
+    link: '/popular'
   },
   {
     svg:IconsList.SEARCH,
     bg:"#00ff9c",
-    link: '/'
+    link: '/search'
   },
   {
     svg:IconsList.About,
@@ -34,7 +34,7 @@ const listMenu:IListMenu[] = [
 ]
 
 export const Header = () => {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(()=>listMenu.findIndex(item=> item.link === window.location.pathname))
   const [pos, setPos] = useState(0)
 
   useEffect(()=>{

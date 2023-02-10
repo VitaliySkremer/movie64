@@ -5,6 +5,7 @@
 
 html {
   --bgColorMenu : #1d1d27;
+  --gold: #ffbd00;
 }
 
 body {
@@ -27,6 +28,5 @@ body {
 .main{
   position: relative;
   flex: 1 1 auto;
-  padding: 50px 30px;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("assets/bg-img.jpg") center/cover;
+  overflow: hidden;
 }
