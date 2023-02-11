@@ -1,0 +1,43 @@
+.small{
+  width: fit-content;
+}
+
+.full {
+  width: 100%;
+}
+
+.button {
+  background-color: rgba(0,0,0,.7);
+  //background-color: transparent;
+  border: none;
+  padding: 15px 25px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 6px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  &::after {
+    transition: transform .2s , background-color .2s ease;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: translateY(-100%);
+    background-color: rgba(255, 230, 0, 0.62);
+  }
+
+  &:hover::after {
+    transform: none;
+  }
+
+  &:active::after {
+    background-color: rgba(255, 230, 0, 0.78);
+  }
+}

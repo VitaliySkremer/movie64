@@ -1,13 +1,19 @@
 import {MySwiper} from "../ui/Swiper/MySwiper";
 import {movieApi} from "../../services/movie";
+import {Loader} from "../ui/Loader/Loader";
 
 export const FilmsListTop = () => {
 
-  const {data, isLoading} = movieApi.useGetTopMovieQuery('')
+  const {data, isLoading, error} = movieApi.useGetTopMovieQuery('')
   return (
     <div>
-      {isLoading && <div>Идёт загрузка</div>}
-      {data && <MySwiper list={data.items}/>}
+      {isLoading
+        ?<Loader/>
+        :<>
+          {data && <MySwiper list={data.items}/>}
+         </>
+      }
+      {error && <div>Упс, ошибочка:(</div>}
     </div>
   )
 }

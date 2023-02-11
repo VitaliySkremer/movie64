@@ -1,0 +1,19 @@
+.loader {
+  border-radius: 50%;
+  border-bottom: 15px solid #007dfe;
+  border-top: 15px solid #007dfe;
+  border-left: 15px solid #007dfe;
+  border-right: 15px solid transparent;
+  width: 100px;
+  height: 100px;
+  animation: loading 1s infinite ease;
+  margin: auto;
+}
+
+@keyframes loading {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+/*# sourceMappingURL=Loader.module.css.map */

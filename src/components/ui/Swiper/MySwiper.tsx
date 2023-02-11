@@ -15,7 +15,7 @@ export const MySwiper = ({list}:MySwiperProps) => {
     <Card>
       <Swiper
         spaceBetween={25}
-        slidesPerView={10}
+        slidesPerView={9}
       >
         {list.map(film=>
           <SwiperSlide key={film.id}>

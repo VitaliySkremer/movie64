@@ -1,7 +1,26 @@
 .layout {
-  background-position: center center !important;
+  height: 100%;
+  animation: anim 0.5s 1 ease;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
   display: flex;
   flex-direction: column;
+  padding: 50px 50px;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+@keyframes anim {
+  0% {
+    background-position: top center;
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=Layout.module.css.map */
