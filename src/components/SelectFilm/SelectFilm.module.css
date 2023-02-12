@@ -62,4 +62,9 @@
   margin-bottom: 15px;
 }
 
+.video {
+  height: 80vh;
+  width: 80vw;
+}
+
 /*# sourceMappingURL=SelectFilm.module.css.map */

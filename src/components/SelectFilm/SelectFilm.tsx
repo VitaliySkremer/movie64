@@ -5,23 +5,15 @@ import {movieApi} from "../../services/movie";
 import {useSelector} from "react-redux";
 import {RootState} from "../../Store/store";
 import {Loader} from "../ui/Loader/Loader";
-import {useEffect, useState} from "react";
 import {Skeleton} from "../ui/Skeleton/Skeleton";
+import {useState} from "react";
+import {Modal} from "../ui/Modal/Modal";
 
 
 export const SelectFilm = () => {
   const id = useSelector((state:RootState)=>state.movieId.id)
-  const [loadImg, setLoadImg] = useState(true);
+  const [isModal, setIsModal] = useState(false);
   const {data, isLoading, error} = movieApi.useGetMovieQuery(`${id}`);
-
-  const onLoadImg = () =>{
-    setLoadImg(false)
-  }
-
-  useEffect(()=>{
-    setLoadImg(true)
-  },[id])
-
   return (
     <div className={styles.wrapper} >
       {isLoading && <Loader/>}
@@ -29,15 +21,13 @@ export const SelectFilm = () => {
       {data && (
         <Card className={styles.card}>
           <div className={styles.img__wrapper}>
-            {loadImg && <Skeleton className={styles.skeleton} height='400px'/>}
-            <img
-              style={loadImg?{display:'none'} :{}}
-              onLoad={onLoadImg}
-              className={styles.img}
+            <Skeleton
               src={data.image}
-              alt="logo"/>
-            <Button>
-              Показать трейлер {loadImg.toString()}
+              className={styles.skeleton}
+              height='400px'
+            />
+            <Button onClick={()=> setIsModal(true)}>
+              Показать трейлер
             </Button>
           </div>
           <div className={styles.description__wrapper}>
@@ -77,11 +67,14 @@ export const SelectFilm = () => {
               {data.plotLocal}
             </p>
           </div>
-          <div>
-            {/*<iframe*/}
-            {/*  src="https://www.imdb.com/video/imdb/vi2959588889/imdb/embed"*/}
-            {/*  frameBorder="0"></iframe>*/}
-          </div>
+          {isModal && (
+            <Modal close={()=>setIsModal(false)}>
+              <iframe
+                className={styles.video}
+                src="https://www.imdb.com/video/imdb/vi2959588889/imdb/embed"
+                frameBorder="0"/>
+            </Modal>
+          )}
         </Card>
       )}
     </div>

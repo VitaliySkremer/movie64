@@ -1,12 +1,39 @@
 import styles from './Skeleton.module.scss'
+import {memo, useEffect, useState} from "react";
 
 interface SkeletonProps {
   height?: string;
-  className?:string
+  className?:string;
+  classNameImg?:string
+  src:string;
 }
 
-export const Skeleton = ({className,height='100px'}:SkeletonProps) => {
+export const Skeleton = memo(({classNameImg,className,height='100px',src}:SkeletonProps) => {
+  const [loadImg, setLoadImg] = useState(true);
+  const onLoadImg = () =>{
+    setLoadImg(false)
+  }
+
+  useEffect(()=>{
+    setLoadImg(true)
+  }, [src])
+
   return (
-    <div className={[styles.skeleton,className].join(' ')} style={{height:height}}/>
+    <>
+      <img
+        style={loadImg?{display:'none'} :{}}
+        onLoad={onLoadImg}
+        className={[styles.img,classNameImg].join(' ')}
+        src={src}
+        loading={"lazy"}
+        alt="logo"
+      />
+      {loadImg && (
+        <div
+          className={[styles.skeleton,className].join(' ')}
+          style={{height:height}}
+        />
+      )}
+    </>
   )
-}
+})

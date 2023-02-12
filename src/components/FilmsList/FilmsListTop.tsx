@@ -7,13 +7,9 @@ export const FilmsListTop = () => {
   const {data, isLoading, error} = movieApi.useGetTopMovieQuery('')
   return (
     <div>
-      {isLoading
-        ?<Loader/>
-        :<>
-          {data && <MySwiper list={data.items}/>}
-         </>
-      }
+      {isLoading && <Loader/>}
       {error && <div>Упс, ошибочка:(</div>}
+      {data && <MySwiper list={data.items}/>}
     </div>
   )
 }
