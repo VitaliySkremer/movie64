@@ -1,0 +1,8 @@
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+/*# sourceMappingURL=List.module.css.map */

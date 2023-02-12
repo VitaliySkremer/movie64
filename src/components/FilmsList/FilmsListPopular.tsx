@@ -2,6 +2,7 @@ import {movieApi} from "../../services/movie";
 import { Loader } from "../ui/Loader/Loader";
 import {MySwiper} from "../ui/Swiper/MySwiper";
 
+
 export const FilmsListPopular = () => {
   const {data, isLoading, error} = movieApi.useGetPopularMovieQuery('')
   return (

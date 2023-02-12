@@ -49,12 +49,17 @@
 
 .td {
   padding: 5px 20px 5px 0;
+  font-size: 18px;
 }
 
 .description {
   margin-top: 10px;
   line-height: 1.5em;
-  font-size: 18px;
+  font-size: 20px;
+}
+
+.skeleton {
+  margin-bottom: 15px;
 }
 
 /*# sourceMappingURL=SelectFilm.module.css.map */

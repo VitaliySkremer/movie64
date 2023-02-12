@@ -1,55 +1,89 @@
 import {Card} from "../ui/Card/Card";
 import styles from './SelectFilm.module.scss'
 import {Button} from "../ui/Button/Button";
+import {movieApi} from "../../services/movie";
+import {useSelector} from "react-redux";
+import {RootState} from "../../Store/store";
+import {Loader} from "../ui/Loader/Loader";
+import {useEffect, useState} from "react";
+import {Skeleton} from "../ui/Skeleton/Skeleton";
+
+
 export const SelectFilm = () => {
+  const id = useSelector((state:RootState)=>state.movieId.id)
+  const [loadImg, setLoadImg] = useState(true);
+  const {data, isLoading, error} = movieApi.useGetMovieQuery(`${id}`);
+
+  const onLoadImg = () =>{
+    setLoadImg(false)
+  }
+
+  useEffect(()=>{
+    setLoadImg(true)
+  },[id])
+
   return (
     <div className={styles.wrapper} >
-      <Card className={styles.card}>
-        <div className={styles.img__wrapper}>
-          <img className={styles.img} src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.6762_AL_.jpg" alt="logo"/>
-          <Button>
-            Показать трейлер
-          </Button>
-        </div>
-        <div className={styles.description__wrapper}>
-          <p className={styles.name}>
-            <span className={styles.name_text}>Аватар 2 путь воды</span>
-            <span className={styles.name_rating}>9.9</span>
-          </p>
-          <table className={styles.table}>
-            <tr>
-              <td className={[styles.td__title, styles.td].join(' ')}>год производства</td>
-              <td className={styles.td}>2000</td>
-            </tr>
-            <tr>
-              <td className={[styles.td__title,styles.td].join(' ')}>Страна</td>
-              <td className={styles.td}>США</td>
-            </tr>
-            <tr>
-              <td className={[styles.td__title,styles.td].join(' ')}>Компания</td>
-              <td className={styles.td}>ворнер брозерс</td>
-            </tr>
-            <tr>
-              <td className={[styles.td__title,styles.td].join(' ')}>Жанр</td>
-              <td className={styles.td}>драма, биография, история, военный</td>
-            </tr>
-            <tr>
-              <td className={[styles.td__title,styles.td].join(' ')}>Режисёр</td>
-              <td className={styles.td}>Стивен спилберг</td>
-            </tr>
-            <tr>
-              <td className={[styles.td__title,styles.td].join(' ')}>Звёзды</td>
-              <td className={styles.td}>Лионардо ди Капри,...</td>
-            </tr>
-          </table>
-          <p className={styles.description}>
-            Дом Кобб — талантливый вор, лучший из лучших в опасном искусстве извлечения: он крадёт ценные секреты из глубин подсознания во время сна, когда человеческий разум наиболее уязвим. Редкие способности Кобба сделали его ценным игроком в привычном к предательству мире промышленного шпионажа, но они же превратили его в извечного беглеца и лишили всего, что он когда-либо любил. И вот у Кобба появляется шанс исправить ошибки. Его последнее дело может вернуть всё назад, но для этого ему нужно совершить невозможное — инициацию. Вместо идеальной кражи Кобб и его команда спецов должны будут провернуть обратное. Теперь их задача — не украсть идею, а внедрить её. Если у них получится, это и станет идеальным преступлением. Но никакое планирование или мастерство не могут подготовить команду к встрече с опасным противником, который, кажется, предугадывает каждый их ход. Врагом, увидеть которого мог бы лишь Кобб.
-          </p>
-        </div>
-        <div>
-
-        </div>
-      </Card>
+      {isLoading && <Loader/>}
+      {error && <div>Упс, ошибочка:(</div>}
+      {data && (
+        <Card className={styles.card}>
+          <div className={styles.img__wrapper}>
+            {loadImg && <Skeleton className={styles.skeleton} height='400px'/>}
+            <img
+              style={loadImg?{display:'none'} :{}}
+              onLoad={onLoadImg}
+              className={styles.img}
+              src={data.image}
+              alt="logo"/>
+            <Button>
+              Показать трейлер {loadImg.toString()}
+            </Button>
+          </div>
+          <div className={styles.description__wrapper}>
+            <p className={styles.name}>
+              <span className={styles.name_text}>{data.title}</span>
+              <span className={styles.name_rating}>{data.imDbRating}</span>
+            </p>
+            <table className={styles.table}>
+              <tbody>
+              <tr>
+                <td className={[styles.td__title, styles.td].join(' ')}>год производства</td>
+                <td className={styles.td}>{data.year}</td>
+              </tr>
+              <tr>
+                <td className={[styles.td__title,styles.td].join(' ')}>Страна</td>
+                <td className={styles.td}>{data.countries}</td>
+              </tr>
+              <tr>
+                <td className={[styles.td__title,styles.td].join(' ')}>Компания</td>
+                <td className={styles.td}>{data.companies}</td>
+              </tr>
+              <tr>
+                <td className={[styles.td__title,styles.td].join(' ')}>Жанр</td>
+                <td className={styles.td}>{data.genres}</td>
+              </tr>
+              <tr>
+                <td className={[styles.td__title,styles.td].join(' ')}>Режисёр</td>
+                <td className={styles.td}>{data.directors}</td>
+              </tr>
+              <tr>
+                <td className={[styles.td__title,styles.td].join(' ')}>Звёзды</td>
+                <td className={styles.td}>{data.stars}</td>
+              </tr>
+              </tbody>
+            </table>
+            <p className={styles.description}>
+              {data.plotLocal}
+            </p>
+          </div>
+          <div>
+            {/*<iframe*/}
+            {/*  src="https://www.imdb.com/video/imdb/vi2959588889/imdb/embed"*/}
+            {/*  frameBorder="0"></iframe>*/}
+          </div>
+        </Card>
+      )}
     </div>
   )
 }

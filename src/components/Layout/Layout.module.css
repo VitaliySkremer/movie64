@@ -3,6 +3,7 @@
   animation: anim 0.5s 1 ease;
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .wrapper {

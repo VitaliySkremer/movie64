@@ -1,15 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
+import {IBigMovie, IMovieList} from "./model";
 
-export interface IMovie{
-  id:string;
-  title:string;
-  image:string;
-  imDbRating: string;
-}
-
-export interface IMovieList{
-  items:IMovie[]
-}
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
@@ -23,6 +14,11 @@ export const movieApi = createApi({
     getPopularMovie:build.query<IMovieList,string>({
       query:()=> ({
         url:`MostPopularMovies/${import.meta.env.VITE__APP_API_KEY}`
+      })
+    }),
+    getMovie:build.query<IBigMovie,string>({
+      query:(id)=>({
+        url:`https://imdb-api.com/ru/API/Title/${import.meta.env.VITE__APP_API_KEY}/${id}/Trailer,`
       })
     })
   })

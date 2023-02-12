@@ -33,4 +33,8 @@ body {
   overflow: hidden;
 }
 
+.swiper-scrollbar-drag {
+  background: #007dfe;
+}
+
 /*# sourceMappingURL=index.css.map */
