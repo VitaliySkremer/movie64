@@ -1,0 +1,33 @@
+.film {
+  display: flex;
+  align-items: center;
+}
+.film:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.skeleton {
+  width: 135px;
+  margin-right: 15px;
+}
+
+.img {
+  height: 200px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.name {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.info__block {
+  font-size: 20px;
+}
+
+.rating {
+  color: var(--gold);
+}
+
+/*# sourceMappingURL=FilmFind.module.css.map */

@@ -1,0 +1,19 @@
+.title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.wrapper {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 10px;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+/*# sourceMappingURL=FIlterBy.module.css.map */

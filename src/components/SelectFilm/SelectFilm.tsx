@@ -24,6 +24,7 @@ export const SelectFilm = () => {
             <Skeleton
               src={data.image}
               className={styles.skeleton}
+              classNameImg={styles.img}
               height='400px'
             />
             <Button onClick={()=> setIsModal(true)}>
@@ -71,7 +72,7 @@ export const SelectFilm = () => {
             <Modal close={()=>setIsModal(false)}>
               <iframe
                 className={styles.video}
-                src="https://www.imdb.com/video/imdb/vi2959588889/imdb/embed"
+                src={data.trailer.linkEmbed}
                 frameBorder="0"/>
             </Modal>
           )}

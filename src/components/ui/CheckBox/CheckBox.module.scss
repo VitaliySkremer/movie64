@@ -1,0 +1,51 @@
+.label {
+  cursor: pointer;
+  width: fit-content;
+  position: relative;
+  display: block;
+}
+
+.input {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &:checked + .title::before{
+    background-color: #00ff9c;
+  }
+  &:checked + .title::after{
+    background-color: #007dfe;
+  }
+}
+
+.title {
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  &::before{
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid #494949;
+    margin-right: 10px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    display: inline-block;
+    border-radius: 50%;
+    height: 5px;
+    width: 5px;
+    background-color: transparent;
+  }
+}
