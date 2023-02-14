@@ -1152,54 +1152,6 @@ export const dataListUtils = {
       "imDbRating": "8.2",
       "imDbRatingCount": "768556"
     },
-    {
-      "id": "tt14642626",
-      "rank": "97",
-      "rankUpDown": "-29",
-      "title": "Sick",
-      "fullTitle": "Sick (2022)",
-      "year": "2022",
-      "image": "https://m.media-amazon.com/images/M/MV5BOTliNDE4ODQtODg3Zi00MGIwLWIwZmItNjQ0YjEzMjdiMWEyXkEyXkFqcGdeQXVyMjY5ODI4NDk@._V1_Ratio0.6716_AL_.jpg",
-      "crew": "John Hyams (dir.), Gideon Adlon, Bethlehem Million",
-      "imDbRating": "6.1",
-      "imDbRatingCount": "8938"
-    },
-    {
-      "id": "tt5537002",
-      "rank": "98",
-      "rankUpDown": "-40",
-      "title": "Killers of the Flower Moon",
-      "fullTitle": "Killers of the Flower Moon",
-      "year": "",
-      "image": "https://m.media-amazon.com/images/M/MV5BZmMyMDc4NWMtZmUzNC00ZjczLWE1ZmYtYWQ3ZTk4ODBmYzE2XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_Ratio1.5075_AL_.jpg",
-      "crew": "Martin Scorsese (dir.), Leonardo DiCaprio, Robert De Niro",
-      "imDbRating": "",
-      "imDbRatingCount": "0"
-    },
-    {
-      "id": "tt0468569",
-      "rank": "99",
-      "rankUpDown": "-2",
-      "title": "The Dark Knight",
-      "fullTitle": "The Dark Knight (2008)",
-      "year": "2008",
-      "image": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_Ratio0.6716_AL_.jpg",
-      "crew": "Christopher Nolan (dir.), Christian Bale, Heath Ledger",
-      "imDbRating": "9.0",
-      "imDbRatingCount": "2672480"
-    },
-    {
-      "id": "tt11847410",
-      "rank": "100",
-      "rankUpDown": "+20",
-      "title": "The Fallout",
-      "fullTitle": "The Fallout (2021)",
-      "year": "2021",
-      "image": "https://m.media-amazon.com/images/M/MV5BMjM2MTg0MDUtZTMwOS00MTk3LTkzZWQtOTQ0ODY4MTI3MTMxXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_Ratio0.6716_AL_.jpg",
-      "crew": "Megan Park (dir.), Jenna Ortega, Maddie Ziegler",
-      "imDbRating": "7.0",
-      "imDbRatingCount": "24290"
-    }
   ],
   "errorMessage": ""
 }

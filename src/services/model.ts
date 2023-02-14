@@ -20,8 +20,13 @@ export interface IMovie{
   title:string;
   image:string;
   imDbRating: string;
+  year:string
 }
 
 export interface IMovieList{
   items:IMovie[]
+}
+
+export interface IMovieListSearch{
+  results:IMovie[]
 }

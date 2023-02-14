@@ -1,10 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {movieApi} from "../services/movie";
 import movieReducer from './slices/movieIdSlice'
+import parametersSearch from './slices/searchSlice'
 
 export const store = configureStore({
   reducer:{
     movieId: movieReducer,
+    parametersSearch: parametersSearch,
     [movieApi.reducerPath]: movieApi.reducer
   },
   middleware:(getDefaultMiddleware)=>

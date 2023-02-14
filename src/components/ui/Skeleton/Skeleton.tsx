@@ -26,7 +26,7 @@ export const Skeleton = ({
 	return (
 		<>
 			<img
-				style={loadImg ? { height: '0' } : {}}
+				style={loadImg ? { height: '0',width:'0' } : {}}
 				onLoad={onLoadImg}
 				className={[styles.img, classNameImg].join(' ')}
 				src={src}
